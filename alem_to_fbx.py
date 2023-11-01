@@ -2,19 +2,6 @@ import maya.cmds as cmds
 import os
 from datetime import datetime
 
-# def init():
-#     global original_file_content
-    
-#     # Store the current 'File Content' setting
-#     original_file_content = cmds.optionVar(query="Import|FBX|Preset|IncludeGrp|FileContent")
-    
-#     # Set 'File Content' to 'add' (3 is the corresponding optionVar value for 'add')
-#     cmds.optionVar(stringValue=["Import|FBX|Preset|IncludeGrp|FileContent", "3"])
-
-# def cleanup():
-#     # Restore the original 'File Content' setting
-#     cmds.optionVar(stringValue=["Import|FBX|Preset|IncludeGrp|FileContent", original_file_content])
-
 def export_frames_as_fbx(abc_node, export_dir, start_frame, end_frame):
     original_start_frame = cmds.playbackOptions(query=True, min=True)
     original_end_frame = cmds.playbackOptions(query=True, max=True)
@@ -114,6 +101,4 @@ def convert_alembic_to_fbx():
     
     cmds.setAttr(f"{alembic_node}.visibility", 1)
     
-    # cleanup()
-
 convert_alembic_to_fbx()
