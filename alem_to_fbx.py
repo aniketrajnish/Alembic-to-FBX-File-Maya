@@ -3,8 +3,8 @@ import os
 from datetime import datetime
 
 def export_frames_as_fbx(abc_node, export_dir, start_frame, end_frame):
-    original_start_frame = cmds.playbackOptions(query=True, min=True)
-    original_end_frame = cmds.playbackOptions(query=True, max=True)
+    original_start_frame = cmds.playbackOptions(query=True, animationStartTime=True)
+    original_end_frame = cmds.playbackOptions(query=True, animationEndTime=True)
     
     for frame in range(start_frame, end_frame + 1):
         cmds.currentTime(frame)
@@ -88,8 +88,8 @@ def convert_alembic_to_fbx():
     if not os.path.exists(export_dir):
         os.makedirs(export_dir)
 
-    start_frame = int(cmds.playbackOptions(query=True, minTime=True))
-    end_frame = int(cmds.playbackOptions(query=True, maxTime=True))
+    start_frame = int(cmds.playbackOptions(query=True, animationStartTime=True))
+    end_frame = int(cmds.playbackOptions(query=True, animationEndTime=True))
     
     # Step 3- Exporting each frame of the alembic file as FBX individually
     export_frames_as_fbx(alembic_node, export_dir, start_frame, end_frame)    

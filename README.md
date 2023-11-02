@@ -12,7 +12,12 @@
  * Select the alembic node and run the python script.
 
 ## Contribution
-Contributions to the project are welcome. Currently working on changing the FBX import preset through the script itself as well as exporting blend shapes with a single mesh file for the alembic files with same topology across the animation cycle.
+Contributions to the project are welcome. 
+Currently working on:
+* Changing the FBX import preset through the script itself. 
+* Exporting blend shapes with a single mesh file for the alembic files with same topology across the animation cycle.
+* Supporting bigger files.
+* Exporting texture information.
 
 ## License
 MIT License
