@@ -9,6 +9,11 @@
  * Import the `alem_to_fbx.py` script into Maya.
  * Import the alembic file into Maya.
  * Make sure that your import preset for the File content for a fbx file is set to  `Add`.
+   
+    <p align="center">
+   <img src="https://github.com/aniketrajnish/Alembic-to-FBX-File-Maya/assets/58925008/1ebe5703-2547-417d-a2e5-6a44668dfaf5" alt="File Content" width="75%"/>
+    </p>
+   
  * Select the alembic node and run the python script.
 
 ## Contribution
