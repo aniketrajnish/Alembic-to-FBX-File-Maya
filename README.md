@@ -25,7 +25,7 @@ Currently working on:
 * Exporting blend shapes with a single mesh file for the alembic files with same topology across the animation cycle.
 * Supporting bigger files.
 * Exporting texture information.
-* Ability to work with multiple Alembic nodes at once.
+* ~~Ability to work with multiple Alembic nodes at once.~~ [Done!]
 
 ## License
 MIT License
