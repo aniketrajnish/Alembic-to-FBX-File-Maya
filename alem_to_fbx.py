@@ -1,4 +1,5 @@
 import maya.cmds as cmds
+import maya.mel as mm
 import os
 from datetime import datetime
 
@@ -19,6 +20,8 @@ def export_frames_as_fbx(abc_node, export_dir, start_frame, end_frame):
 
 def create_animation_from_fbx(export_dir, start_frame, end_frame):
     imported_frame_nodes = []
+    original_import_mode = mm.eval("FBXImportMode -q;")
+    mm.eval("FBXImportMode -v add;")
     
     # Importing the exported FBX frames
     for frame in range(start_frame, end_frame + 1):
@@ -62,8 +65,9 @@ def create_animation_from_fbx(export_dir, start_frame, end_frame):
         frame_file_path = os.path.join(export_dir, f"frame_{frame:04d}.fbx")
         if os.path.exists(frame_file_path):
             os.remove(frame_file_path)
+    mm.eval(f"FBXImportMode -v {original_import_mode};")
     
-    print("Individual frame nodes and files removed.")
+    print("Individual frame nodes and files removed. Import settings reverted.")
 
 def convert_alembic_to_fbx():
     # init()
