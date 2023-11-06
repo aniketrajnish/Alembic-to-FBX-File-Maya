@@ -9,22 +9,17 @@ https://github.com/aniketrajnish/Alembic-to-FBX-File-Maya/assets/58925008/33739d
     git clone https://github.com/aniketrajnish/Alembic-to-FBX-File-Maya.git
     ```  
  * Import the `alem_to_fbx.py` script into Maya.
- * Import the alembic file into Maya.
- * Make sure that your import preset for the File content for a fbx file is set to  `Add`.   
-   
-    <p align="center">
-   <img src="https://github.com/aniketrajnish/Alembic-to-FBX-File-Maya/assets/58925008/963328a6-8fca-42a9-944b-80aced85507c" alt="File Content" width="75%"/>
-    </p>
-   
+ * Import the alembic file into Maya.   
  * Select the alembic node and run the python script.
+ * To export the texture information along with the mesh, change to blinn/lambert materials.
 
 ## Contribution
 Contributions to the project are welcome. 
 Currently working on:
-* Changing the FBX import preset through the script itself. 
+* ~~Changing the FBX import preset through the script itself.~~ [Done!] 
 * Exporting blend shapes with a single mesh file for the alembic files with same topology across the animation cycle.
 * Supporting bigger files.
-* Exporting texture information.
+* ~~Exporting texture information.~~ [Done!]
 * ~~Ability to work with multiple Alembic nodes at once.~~ [Done!]
 
 ## License
