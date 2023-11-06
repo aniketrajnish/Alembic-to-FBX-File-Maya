@@ -3,9 +3,16 @@ import maya.mel as mm
 import os
 from datetime import datetime
 
-def export_frames_as_fbx(abc_node, export_dir, start_frame, end_frame):
+original_export_mode = None
+original_import_mode = None
+
+def export_frames_as_fbx(abc_node, export_dir, start_frame, end_frame):   
     original_start_frame = cmds.playbackOptions(query=True, animationStartTime=True)
     original_end_frame = cmds.playbackOptions(query=True, animationEndTime=True)
+    
+    global original_export_mode    
+    original_export_mode = mm.eval("FBXExportEmbeddedTextures -q;")
+    mm.eval("FBXExportEmbeddedTextures -v true;")
     
     for frame in range(start_frame, end_frame + 1):
         cmds.currentTime(frame)
@@ -20,6 +27,8 @@ def export_frames_as_fbx(abc_node, export_dir, start_frame, end_frame):
 
 def create_animation_from_fbx(export_dir, start_frame, end_frame):
     imported_frame_nodes = []
+    
+    global original_import_mode
     original_import_mode = mm.eval("FBXImportMode -q;")
     mm.eval("FBXImportMode -v add;")
     
@@ -64,8 +73,11 @@ def create_animation_from_fbx(export_dir, start_frame, end_frame):
     for frame in range(start_frame, end_frame + 1):
         frame_file_path = os.path.join(export_dir, f"frame_{frame:04d}.fbx")
         if os.path.exists(frame_file_path):
-            os.remove(frame_file_path)
+            os.remove(frame_file_path)            
+      
+    global original_export_mode
     mm.eval(f"FBXImportMode -v {original_import_mode};")
+    mm.eval(f"FBXExportEmbeddedTextures -v {original_export_mode};")
     
     print("Individual frame nodes and files removed. Import settings reverted.")
 
