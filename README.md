@@ -1,5 +1,5 @@
 # Alembic to FBX File Maya
- A python script that converts an Alembic file to animated FBX files using Maya. 
+ A python script that converts an Alembic file to animated FBX files using Maya while retaining the texture information.
 
 https://github.com/aniketrajnish/Alembic-to-FBX-File-Maya/assets/58925008/33739de4-6689-4843-8e8b-727c9e7dee0b
 
